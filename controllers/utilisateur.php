@@ -2,7 +2,7 @@
 
 
 
-require_once __DIR__ . '/livre-or/configuration/config.php';
+require_once __DIR__ . '/../configuration/config.php';
 
 class Utilisateur extends Connexion {
     private $pdo; 
