@@ -2,58 +2,9 @@
 
 session_start(); 
 
-class Connexion {
-    private $host, $dbname, $username, $password;
+require_once __DIR__ . "/../configuration/config.php";
+require_once __DIR__ ."/../controllers/utilisateur.php" ;
 
-    public function __construct($host, $dbname, $username, $password) {
-        $this->host = $host;
-        $this->dbname = $dbname;
-        $this->username = $username;
-        $this->password = $password;
-    }
-    
-    public function connexionBDD() {
-        try {
-            return new PDO("mysql:host=$this->host;dbname=$this->dbname;charset=utf8", $this->username, $this->password, [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-            ]);
-        } catch (PDOException $e) {
-            die("Erreur de connexion: " . $e->getMessage());
-        }
-    }
-
-    public function sessionStart() {
-        if (session_status() === PHP_SESSION_NONE) session_start();
-    }
-}
-
-$connexion = new Connexion('localhost', 'livre-or', 'root', '');
-$connexion->connexionBDD();
-$connexion->sessionStart();
-
-class Utilisateur extends Connexion {
-    private $pdo; 
-
-    public function __construct($host = 'localhost', $dbname = 'livre-or', $username = 'root', $password = '') {
-        parent::__construct($host, $dbname, $username, $password);
-        $this->pdo = $this->connexionBDD(); 
-    }
-
-    public function getUserByMail($mail) {
-        $stmt = $this->pdo->prepare("SELECT * FROM utilisateur WHERE mail = :mail");
-        $stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function insertUser($mail, $mdp) {
-        $hashedPassword = password_hash($mdp, PASSWORD_DEFAULT);
-        $stmt = $this->pdo->prepare("INSERT INTO utilisateur (mail, mdp) VALUES (:mail, :mdp)");
-        $stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
-        $stmt->bindParam(":mdp", $hashedPassword, PDO::PARAM_STR);
-        return $stmt->execute();
-    }
-}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($_POST["mail"]) && !empty($_POST["mdp"])) {
