@@ -9,6 +9,7 @@ class Commentaire extends RequeteCommentaire {
         $html = '';
     
         foreach ($result as $afficher_commentaire) {
+
             $html .= "<h2>" . htmlspecialchars($afficher_commentaire['auteur']) . "</h2>";
             $html .= "<p>" . htmlspecialchars($afficher_commentaire['commentaire']) . "</p>";
             $html .= "<span>" . htmlspecialchars($afficher_commentaire['date']) . "</span><br>";
@@ -19,11 +20,10 @@ class Commentaire extends RequeteCommentaire {
     
 
     public function ajouterCommentaire() {
-        if (isset($_POST['poster']) && !empty($_POST['commentaire']) && !empty($_POST['auteur'])) {
+        if (isset($_POST['poster']) && !empty($_POST['commentaire'])) {
             $commentaire = htmlspecialchars($_POST['commentaire']);
-            $auteur = htmlspecialchars($_POST['auteur']);
 
-            $result = $this->requeteAjouterCommentaire($commentaire, $auteur);
+            $result = $this->requeteAjouterCommentaire($commentaire);
             
             if ($result) {
                 return "Commentaire ajouté avec succès.";
@@ -34,5 +34,11 @@ class Commentaire extends RequeteCommentaire {
             return "Tous les champs doivent être remplis.";
         }
     }
+
+    public function paginationCommentaire(){
+        $nbr_element_page = 5;
+        
+    }
+
 }
 ?>
