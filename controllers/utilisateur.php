@@ -27,6 +27,19 @@ class Utilisateur extends Connexion {
         $stmt->bindParam(":mdp", $hashedPassword, PDO::PARAM_STR);
         return $stmt->execute();
     }
+    public function updateUser($id, $email = null, $mdp = null) {
+        if ($email) {
+            $stmt = $this->pdo->prepare("UPDATE utilisateur SET mail = :mail WHERE id_utilisateur = :id");
+            $stmt->execute(["mail" => $email, "id" => $id]);
+        }
+        if ($mdp) {
+            $hashedPassword = password_hash($mdp, PASSWORD_DEFAULT);
+            $stmt = $this->pdo->prepare("UPDATE utilisateur SET mdp = :mdp WHERE id_utilisateur = :id");
+            $stmt->execute(["mdp" => $hashedPassword, "id" => $id]);
+        }
+        return true;
+    }
+    
 }
 
 ?>
