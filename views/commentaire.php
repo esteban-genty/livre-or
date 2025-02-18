@@ -38,6 +38,8 @@
                 if ($afficher) {
                     echo "<p>$afficher</p>";
                 }  
+
+                $commentaire->AfficherPaginationCommentaire();
             ?>  
             
     </main>

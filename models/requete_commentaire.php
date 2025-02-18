@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../configuration/config.php";
+require_once __DIR__ . "/../controllers/commentaire.php";
 
 class RequeteCommentaire extends Connexion {
 
@@ -11,18 +12,28 @@ class RequeteCommentaire extends Connexion {
         $this->bddPDO = $bddPDO;
     }
 
-    public function getCommentaire() {
-        $requete = 'SELECT * FROM commentaire ORDER BY id_commentaire DESC';
-        $requete = $this->bddPDO->prepare($requete);
-        $requete->execute();
-        return $requete->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function nombreCommentaire() {
-        $nombre = $this->bddPDO->prepare('SELECT count(id_commentraire) FROM commentaire');
+        $nombre = $this->bddPDO->prepare('SELECT count(id_commentaire) FROM commentaire');
         $nombre->execute();
         return (int) $nombre->fetchColumn();
     }
+
+    public function getCommentaire($page = 1) {
+        $nbr_element_page = 5;
+
+        $debut = ($page - 1) * $nbr_element_page;
+
+        $requete = 'SELECT * FROM commentaire ORDER BY id_commentaire DESC LIMIT :debut, :nbr_element_page';
+        $stmt = $this->bddPDO->prepare($requete);
+
+        $stmt->bindParam(':debut', $debut, PDO::PARAM_INT);
+        $stmt->bindParam(':nbr_element_page', $nbr_element_page, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 
     public function requeteAjouterCommentaire($commentaire) {
