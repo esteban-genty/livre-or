@@ -1,4 +1,7 @@
-
+body{
+    background-image:url(../R.jpg);
+    background-size: cover;
+}
 main{
     display: flex;
     flex-direction: column;
@@ -68,4 +71,17 @@ p {
 
 .success {
     color: green;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    body {
+        background-position: center;
+        background-size: contain;
+    }
+    
+    .container {
+        width: 90%; 
+    }
 }

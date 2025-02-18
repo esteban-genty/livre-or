@@ -13,12 +13,14 @@ class Utilisateur extends Connexion {
         $this->pdo = $this->connexionBDD(); 
     }
 
-    public function getUserByMail($mail) {
-        $stmt = $this->pdo->prepare("SELECT * FROM utilisateur WHERE mail = :mail");
-        $stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
-        $stmt->execute();
+    public function getUserByMail($email)
+     {
+        $sql = "SELECT id_utilisateur, nom, mail, mdp FROM utilisateur WHERE mail = :mail";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(["mail" => $email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    
 
     public function insertUser($mail, $mdp) {
         $hashedPassword = password_hash($mdp, PASSWORD_DEFAULT);
@@ -27,7 +29,11 @@ class Utilisateur extends Connexion {
         $stmt->bindParam(":mdp", $hashedPassword, PDO::PARAM_STR);
         return $stmt->execute();
     }
-    public function updateUser($id, $email = null, $mdp = null) {
+    public function updateUser($id, $nom = null, $email = null, $mdp = null) {
+        if ($nom) {
+            $stmt = $this->pdo->prepare("UPDATE utilisateur SET nom = :nom WHERE id_utilisateur = :id");
+            $stmt->execute(["nom" => $nom, "id" => $id]);
+        }
         if ($email) {
             $stmt = $this->pdo->prepare("UPDATE utilisateur SET mail = :mail WHERE id_utilisateur = :id");
             $stmt->execute(["mail" => $email, "id" => $id]);
