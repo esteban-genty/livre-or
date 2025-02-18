@@ -1,4 +1,6 @@
 <?php require_once __DIR__ . "/../controllers/commentaire.php"; ?>
+<?php require_once __DIR__ . "/../models/requete_commentaire.php"; ?>
+<?php require_once __DIR__ . "/../configuration/config.php"; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,7 +10,7 @@
     <meta name="keywords" content="Livre d'or, Echo Book">
     <meta name="author" content="Estéban, Antoine, Sébastien">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EchoBook - Ajouter Commentaire</title>
+    <title>EchoBook - Affichage Commentaire</title>
 
     <!-- Fichier styles -->
     <link rel="stylesheet" href="../styles/styles.css">
@@ -22,29 +24,22 @@
 <body>
 
     <main>
-        <section class="ajout-commentaire">
-            <h1>Veuillez entrer votre commentaire :</h1>
-            <form action="" method="POST">
+        <section class="afficher-commentaire">
+            <h1>Commentaire :</h1>
+            <?php
 
-                <!-- Adding the auteur field -->
-                <input type="text" name="auteur" id="auteur" required placeholder="Votre Prénom"/>
+                $connexion = new Connexion('localhost', 'livre-or', 'root', '');
+                $bddPDO = $connexion->connexionBDD(); 
+                
+                $commentaire = new Commentaire($bddPDO);
+                $afficher = $commentaire->afficherCommentaire();
+                
 
-                <!-- Comment text area -->
-                <textarea id="commentaire" name="commentaire" required></textarea>
-
-                <!-- Submit button -->
-                <button type="submit" name="poster">Poster</button>
-            </form>
-
-            <!-- Displaying result messages -->
-            <?php 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $commentaireObj = new Commentaire($bddPDO);
-                $message = $commentaireObj->ajouterCommentaire();
-                echo $message; // Displaying success or error message
-            }
-            ?>
-        </section>
+                if ($afficher) {
+                    echo "<p>$afficher</p>";
+                }  
+            ?>  
+            
     </main>
 
 </body>
