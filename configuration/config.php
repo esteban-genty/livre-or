@@ -25,8 +25,4 @@ class Connexion {
     }
 }
 
-$connexion = new Connexion('localhost', 'livre-or', 'root', '');
-$connexion->connexionBDD();
-$connexion->sessionStart();
-
 ?>
