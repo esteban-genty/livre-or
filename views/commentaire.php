@@ -36,7 +36,7 @@
                 
 
                 if ($afficher) {
-                    echo "<p>$afficher</p>";
+                    echo $afficher;
                 }  
 
                 $commentaire->AfficherPaginationCommentaire();

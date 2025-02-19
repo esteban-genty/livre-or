@@ -24,20 +24,22 @@ class RequeteCommentaire extends Connexion {
         $debut = ($page - 1) * $nbr_element_page;
 
         $requete = 'SELECT * FROM commentaire ORDER BY id_commentaire DESC LIMIT :debut, :nbr_element_page';
-        $stmt = $this->bddPDO->prepare($requete);
+        $requete = $this->bddPDO->prepare($requete);
 
-        $stmt->bindParam(':debut', $debut, PDO::PARAM_INT);
-        $stmt->bindParam(':nbr_element_page', $nbr_element_page, PDO::PARAM_INT);
+        $requete->bindParam(':debut', $debut, PDO::PARAM_INT);
+        $requete->bindParam(':nbr_element_page', $nbr_element_page, PDO::PARAM_INT);
 
-        $stmt->execute();
+        $requete->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $requete->fetchAll(PDO::FETCH_ASSOC);
     }
 
 
 
     public function requeteAjouterCommentaire($commentaire) {
         $date = date('Y-m-d H:i:s'); // Ajout de la date dans la BDD
+        //$utilisateur_id = $_SESSION['utilisateur_id'];
+        //$auteur = $_SESSION['prenom'];
     
         $requete = $this->bddPDO->prepare('INSERT INTO commentaire (commentaire, utilisateur_id, date, auteur) VALUES (:commentaire, :utilisateur_id, :date, :auteur)');
         

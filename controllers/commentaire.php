@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . "/../models/requete_commentaire.php";
-// require_once __DIR__ ."/../views/form-commentaire.php";
 
 class Commentaire extends RequeteCommentaire {
 
@@ -13,15 +12,16 @@ class Commentaire extends RequeteCommentaire {
     
         // Afficher les commentaires
         foreach ($result as $afficher_commentaire) {
+            $html .= '<article>';
             $html .= "<h2>" . htmlspecialchars($afficher_commentaire['auteur']) . "</h2>";
             $html .= "<p>" . htmlspecialchars($afficher_commentaire['commentaire']) . "</p>";
-            $html .= "<span>" . htmlspecialchars($afficher_commentaire['date']) . "</span><br>";
+            $html .= "<span>" . htmlspecialchars($afficher_commentaire['date']) . "</span>";
+            $html .= '</article>';
         }
     
         return $html;
     }
 
-    
 
     public function ajouterCommentaire() {
         if (isset($_POST['poster']) && !empty($_POST['commentaire'])) {
@@ -39,17 +39,7 @@ class Commentaire extends RequeteCommentaire {
         }
     }
 
-    public function paginationCommentaire(){
-        $nbr_commentaire = $this->nombreCommentaire();
-
-        $page = $_GET["page"];
-        $nbr_element_page = 5;
-        $nbr_page = ceil($nbr_commentaire / $nbr_element_page);
-        $debut = ($page-1) * $nbr_element_page;
-
-    }
-
-    public function AfficherPaginationCommentaire($page = 1) {
+    public function AfficherPaginationCommentaire() {
         $nbr_commentaire = $this->nombreCommentaire();
         $nbr_element_page = 5;
         $nbr_page = ceil($nbr_commentaire / $nbr_element_page);
