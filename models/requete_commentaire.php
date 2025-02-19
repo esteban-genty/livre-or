@@ -19,7 +19,7 @@ class RequeteCommentaire extends Connexion {
     }
 
     public function getCommentaire($page = 1) {
-        $nbr_element_page = 5;
+        $nbr_element_page = 9;
 
         $debut = ($page - 1) * $nbr_element_page;
 
@@ -32,6 +32,15 @@ class RequeteCommentaire extends Connexion {
         $requete->execute();
 
         return $requete->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function requeteModifierCommentaire($commentaire, $commentaire_id){
+
+        $requete = $this->bddPDO->prepare("UPDATE `commentaire` SET `commentaire` = :commentaire WHERE `id_commentaire` = :commentaire_id");
+        $requete->bindParam(":commentaire", $commentaire );
+        $requete->bindParam(":commentaire_id", $commentaire_id ,PDO::PARAM_INT);
+        $requete->execute();
+        
     }
 
 

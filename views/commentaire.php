@@ -13,19 +13,20 @@
     <title>EchoBook - Affichage Commentaire</title>
 
     <!-- Fichier styles -->
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../public/css/root.css">
+    <link rel="stylesheet" href="../public/css/commentaire.css">
 
     <!-- Police d'écriture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <main>
+        <h1>Commentaire :</h1>
         <section class="afficher-commentaire">
-            <h1>Commentaire :</h1>
             <?php
 
                 $connexion = new Connexion('localhost', 'livre-or', 'root', '');
@@ -37,7 +38,8 @@
 
                 if ($afficher) {
                     echo $afficher;
-                }  
+                }
+        echo "</section>";
 
                 $commentaire->AfficherPaginationCommentaire();
             ?>  

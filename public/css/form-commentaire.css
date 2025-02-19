@@ -42,4 +42,9 @@
     background-color: var(--cta);
     color: white;
     font-family: var(--main-font);
+    transition: 0.3s ease;
+}
+
+.ajout-commentaire button:hover{
+    background-color: var(--cta-hover);
 }

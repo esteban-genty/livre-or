@@ -41,12 +41,15 @@ class Commentaire extends RequeteCommentaire {
 
     public function AfficherPaginationCommentaire() {
         $nbr_commentaire = $this->nombreCommentaire();
-        $nbr_element_page = 5;
+        $nbr_element_page = 9;
         $nbr_page = ceil($nbr_commentaire / $nbr_element_page);
     
+        echo "<section class='pagination'>";
+
         for ($i = 1; $i <= $nbr_page; $i++) {
-            echo "<a href='?page=$i'>$i</a> ";
+            echo "<a href='?page=$i'>$i</a>";
         }
+        echo "</section>";
     }
 
 }
