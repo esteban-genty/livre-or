@@ -6,25 +6,25 @@ require_once __DIR__ . "/../configuration/config.php";
 require_once __DIR__ . "/../controllers/utilisateur.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (!empty($_POST["nom"]) && !empty($_POST["mail"]) && !empty($_POST["mdp"])) {
-        $nom = trim($_POST["nom"]);
+    if (!empty($_POST["prenom"]) && !empty($_POST["mail"]) && !empty($_POST["mdp"])) {
+        $nom = trim($_POST["prenom"]);
         $email = trim($_POST["mail"]);
         $motdepasse = trim($_POST["mdp"]);
 
         $utilisateur = new Utilisateur('localhost', 'livre-or', 'root', '');
         $userData = $utilisateur->getUserByMail($email);
         
-        if ($userData && $userData["nom"] === $nom && password_verify($motdepasse, $userData["mdp"])) {
+        if ($userData && $userData["prenom"] === $nom && password_verify($motdepasse, $userData["mdp"])) {
             $_SESSION["utilisateur"] = [
                 "id_utilisateur" => $userData["id_utilisateur"],
-                "nom" => $userData["nom"], 
+                "prenom" => $userData["nom"], 
                 "mail" => $userData["mail"]
             ];
             
             header("Location: modifier_profil.php");
             exit;
         } else {
-            $error = "Nom, email ou mot de passe incorrect.";
+            $error = "Prenom, email ou mot de passe incorrect.";
         }
     } else {
         $error = "Veuillez remplir tous les champs.";
@@ -47,8 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h1>Connexion</h1>
         <section class="formsection">
             <form method="POST" action="connexion.php">
-                <label for="nom">Nom :</label>
-                <input type="text" name="nom" required>
+                <label for="prenom">prenom :</label>
+                <input type="text" name="prenom" required>
 
                 <label for="mail">Email :</label>
                 <input type="email" name="mail" required>

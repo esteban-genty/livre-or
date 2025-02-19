@@ -15,7 +15,7 @@ class Utilisateur extends Connexion {
 
     public function getUserByMail($email)
      {
-        $sql = "SELECT id_utilisateur, nom, mail, mdp FROM utilisateur WHERE mail = :mail";
+        $sql = "SELECT id_utilisateur, prenom, mail, mdp FROM utilisateur WHERE mail = :mail";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(["mail" => $email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -31,8 +31,8 @@ class Utilisateur extends Connexion {
     }
     public function updateUser($id, $nom = null, $email = null, $mdp = null) {
         if ($nom) {
-            $stmt = $this->pdo->prepare("UPDATE utilisateur SET nom = :nom WHERE id_utilisateur = :id");
-            $stmt->execute(["nom" => $nom, "id" => $id]);
+            $stmt = $this->pdo->prepare("UPDATE utilisateur SET prenom = :prenom WHERE id_utilisateur = :id");
+            $stmt->execute(["prenom" => $nom, "id" => $id]);
         }
         if ($email) {
             $stmt = $this->pdo->prepare("UPDATE utilisateur SET mail = :mail WHERE id_utilisateur = :id");

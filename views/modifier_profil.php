@@ -14,21 +14,21 @@ $id_utilisateur = $_SESSION["utilisateur"]["id_utilisateur"];
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nouveau_nom = trim($_POST["nom"] ?? '');
+    $nouveau_prenom = trim($_POST["prenom"] ?? '');
     $nouvel_email = filter_var(trim($_POST["mail"] ?? ''), FILTER_VALIDATE_EMAIL);
     $nouveau_mdp = trim($_POST["mdp"] ?? '');
     $confirmer_mdp = trim($_POST["confirmer_mdp"] ?? '');
 
-    if ($nouveau_nom || $nouvel_email || ($nouveau_mdp && $confirmer_mdp)) {
+    if ($nouveau_prenom|| $nouvel_email || ($nouveau_mdp && $confirmer_mdp)) {
         if ($nouveau_mdp && $nouveau_mdp !== $confirmer_mdp) {
             $message = "Les mots de passe ne correspondent pas.";
         } else {
  
 
-            $updateSuccess = $utilisateur->updateUser($id_utilisateur, $nouveau_nom, $nouvel_email, $nouveau_mdp);
+            $updateSuccess = $utilisateur->updateUser($id_utilisateur, $nouveau_prenom, $nouvel_email, $nouveau_mdp);
             
             if ($updateSuccess) {
-                if ($nouveau_nom) $_SESSION["utilisateur"]["nom"] = $nouveau_nom;
+                if ($nouveau_prenom) $_SESSION["utilisateur"]["prenom"] = $nouveau_prenom;
                 if ($nouvel_email) $_SESSION["utilisateur"]["mail"] = $nouvel_email;
                 $message = "Mise à jour réussie !";
             } else {
@@ -55,10 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <main>
     <div class="container">
         <h1>Modifier son profil</h1>
-        <h2>Bienvenue, <?= htmlspecialchars($_SESSION['utilisateur']['nom'] ?? 'Utilisateur') ?> 👋</h2>
+        <h2>Bienvenue, <?= htmlspecialchars($_SESSION['utilisateur']['prenom'] ?? 'Utilisateur') ?> 👋</h2>
 
         <form method="POST" action="modifier_profil.php">
-            <input type="text" name="nom" value="<?= htmlspecialchars($_SESSION['utilisateur']['nom'] ?? '') ?>" placeholder="Nouveau nom">
+            <input type="text" name="prenom" value="<?= htmlspecialchars($_SESSION['utilisateur']['prenom'] ?? '') ?>" placeholder="Nouveau prenom">
             <input type="email" name="mail" value="<?= htmlspecialchars($_SESSION['utilisateur']['mail'] ?? '') ?>" placeholder="Nouvel email">
             <input type="password" name="mdp" placeholder="Nouveau mot de passe">
             <input type="password" name="confirmer_mdp" placeholder="Confirmer mot de passe" required>
