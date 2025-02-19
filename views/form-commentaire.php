@@ -13,12 +13,13 @@
     <title>EchoBook - Ajouter Commentaire</title>
 
     <!-- Fichier styles -->
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../public/css/root.css">
+    <link rel="stylesheet" href="../public/css/form-commentaire.css">
 
     <!-- Police d'écriture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
         <h1>Veuillez entrez votre commentaire :</h1>
         <form action="" method="POST">
 
-            <textarea id="commentaire" name="commentaire"></textarea>
+            <textarea id="commentaire" name="commentaire" placeholder="Entrez votre commentaire..."></textarea>
 
             <button type="submit" name="poster">Poster</button>
         </form>
