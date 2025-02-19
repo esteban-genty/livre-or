@@ -27,7 +27,6 @@
 <main>
     <section class="modifier-commentaire">
         <h1>Selectionner le commentaire à modifier :</h1>
-    </section>
 
     <?php
 
@@ -46,6 +45,7 @@
         }
 
     ?>
+    </section>
     
 </main>
 
