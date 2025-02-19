@@ -7,15 +7,6 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        .sectionImg {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            img {
-                width: 30%;
-                height: auto;
-            }
-        }
         .Bigsection {
             width: 30%;
             h1 {
@@ -95,28 +86,14 @@ body {
         
 }
 
-@media only screen and (max-width: 768px) {
-    main {
-        section {
-            img {
-                width: 80% !important;
-                height: auto;
-            }
-        }
-        .formsection {
-            width: 80%;
-            form {
-                width: 80%;
-                label {
-                    font-size: 16px !important;
-                }
-                div {
-                    button {
-                        width: 50% !important;
-                        height: 40px;
-                        font-size: 16px !important;
-                    }
-                }  
+@media only screen and (max-width: 720px) {
+    body {
+        main {
+            height: 71%;
+            justify-content: flex-start;
+            margin-top: 60px;
+            .Bigsection {
+                width: 90% !important;
             }
         }
     }
