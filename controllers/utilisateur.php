@@ -13,11 +13,11 @@ class Utilisateur extends Connexion {
         $this->pdo = $this->connexionBDD(); 
     }
 
-    public function getUserByMail($email)
+    public function getUserByMail($mail)
      {
         $sql = "SELECT id_utilisateur, prenom, mail, mdp FROM utilisateur WHERE mail = :mail";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(["mail" => $email]);
+        $stmt->execute(["mail" => $mail]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     

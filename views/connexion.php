@@ -6,18 +6,18 @@ require_once __DIR__ . "/../configuration/config.php";
 require_once __DIR__ . "/../controllers/utilisateur.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (!empty($_POST["prenom"]) && !empty($_POST["mail"]) && !empty($_POST["mdp"])) {
-        $nom = trim($_POST["prenom"]);
+    if (!empty($_POST["mail"]) && !empty($_POST["mdp"])) {
+        $prenom = trim($_POST["prenom"]);
         $email = trim($_POST["mail"]);
         $motdepasse = trim($_POST["mdp"]);
 
         $utilisateur = new Utilisateur('localhost', 'livre-or', 'root', '');
         $userData = $utilisateur->getUserByMail($email);
         
-        if ($userData && $userData["prenom"] === $nom && password_verify($motdepasse, $userData["mdp"])) {
+        if ($userData && $userData["mail"] === $email && password_verify($motdepasse, $userData["mdp"])) {
             $_SESSION["utilisateur"] = [
                 "id_utilisateur" => $userData["id_utilisateur"],
-                "prenom" => $userData["nom"], 
+                "prenom" => $userData["prenom"], 
                 "mail" => $userData["mail"]
             ];
             
@@ -47,8 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h1>Connexion</h1>
         <section class="formsection">
             <form method="POST" action="connexion.php">
-                <label for="prenom">prenom :</label>
-                <input type="text" name="prenom" required>
+             
 
                 <label for="mail">Email :</label>
                 <input type="email" name="mail" required>
