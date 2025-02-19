@@ -1,5 +1,4 @@
-
-main{
+/* main{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,5 +79,126 @@ p {
     
     .container {
         width: 90%; 
+    }
+} */
+
+body {
+    color: white;
+    main {
+        height: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .Bigsection {
+            width: 40%;
+            h1 {
+                font-family: var(--title-font);
+                color: var(--black-color);
+                font-size: 40px;
+                margin: 0 0 4px 15px;
+            }
+            .formsection {
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--main-bg-color);
+                border-radius: 20px;
+                h2 {
+                    margin-top: 10px;
+                    font-family: var(--main-font);
+                }
+                form {
+                    font-family: var(--main-font);
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        margin : 20px 0 5px 0;
+                        color: white;
+                        font-weight: bold;
+                        letter-spacing: 0.5px;
+                    }
+                    input {
+                        font-size: 16px;
+                        letter-spacing: 1px;
+                        padding: 10px;
+                        border-radius: 5px;
+                        outline: none;
+                        border: none;
+                        background-color: white;
+                        transition: 0.3s ease-in-out;
+                    }
+                    input:focus {
+                        box-shadow: var(--cta) inset 0 -4px;
+                    }
+                    input::placeholder {
+                        color: rgba(105, 105, 105, 0.336);
+                        transition: 0.3 ease-in-out;
+                    }
+                    .erMsg {
+                        margin-top: 4px;
+                        color: red;
+                        text-align: center;
+                    }
+                    #buttonbox {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100%;
+                        button {
+                            font-size: 16px;
+                            font-weight: bold;
+                            letter-spacing: 0.5px;
+                            padding: 10px;
+                            border-radius: 5px;
+                            outline: none;
+                            border: none;
+                            background-color: var(--cta);
+                            transition: 0.3s ease-in-out;
+                            color: white;
+                            margin: 20px 0;
+                        }
+                        button:hover {
+                            color: var(--black-color);
+                            background-color: var(--cta-hover);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+        
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        section {
+            img {
+                width: 80% !important;
+                height: auto;
+            }
+        }
+        .formsection {
+            width: 80%;
+            form {
+                width: 80%;
+                label {
+                    font-size: 16px !important;
+                }
+                div {
+                    button {
+                        width: 50% !important;
+                        height: 40px;
+                        font-size: 16px !important;
+                    }
+                }  
+            }
+        }
     }
 }
