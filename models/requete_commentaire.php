@@ -34,13 +34,27 @@ class RequeteCommentaire extends Connexion {
         return $requete->fetchAll(PDO::FETCH_ASSOC);
     }
 
+public function getCommentaireUtilisateur() {
+    //$utilisateur_id = $_SESSION['id_utilisateur'];
+    $utilisateur_id = 10;
+    
+    $requete = $this->bddPDO->prepare('SELECT * FROM commentaire WHERE utilisateur_id = :utilisateur_id ORDER BY id_commentaire DESC');
+    $requete->bindParam(':utilisateur_id', $utilisateur_id, PDO::PARAM_INT);
+    $requete->execute();
+
+    return $requete->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
     public function requeteModifierCommentaire($commentaire, $commentaire_id){
 
         $requete = $this->bddPDO->prepare("UPDATE `commentaire` SET `commentaire` = :commentaire WHERE `id_commentaire` = :commentaire_id");
         $requete->bindParam(":commentaire", $commentaire );
         $requete->bindParam(":commentaire_id", $commentaire_id ,PDO::PARAM_INT);
         $requete->execute();
-        
+
+        return $requete;
+
     }
 
 

@@ -52,5 +52,46 @@ class Commentaire extends RequeteCommentaire {
         echo "</section>";
     }
 
-}
+    public function afficherModifierCommentaire() {
+        $results = $this->getCommentaireUtilisateur();
+        $html = '';
+        
+        if ($results) {
+            $html .= '<form action="" method="post">';
+            $html .= '<select name="choisir-commentaire">';
+            $html .= '<option value="choisir">Choisir un commentaire</option>'; // Modifié pour laisser vide l'option par défaut
+            foreach ($results as $result) {
+                $html .= '<option value="' . $result['id_commentaire'] . '">' . $result['commentaire'] . '</option>';
+            }
+            $html .= '</select>';
+            $html .= '<input type="text" name="nv_commentaire" placeholder="Nouveau Commentaire" required />';
+            $html .= '<button type="submit" name="modifier">Modifier</button>';
+            $html .= '</form>';
+            
+            return $html;
+        } else {
+            return "Aucun commentaire trouvé.";
+        }
+    }
+    
+
+    public function modifierCommentaire($commentaire, $commentaire_id){
+
+        if(isset($_POST['modifier']) && !empty($_POST['nv_commentaire']) && $_POST['choisir-commentaire'] != "choisir" ){
+
+        $modifier = $this->requeteModifierCommentaire($commentaire, $commentaire_id);
+
+        if ($modifier) {
+            return "Commentaire modifié avec succès";
+        }else{
+            return "Erreur lors de la modification du commentaire";
+        }
+
+        }else{
+            return "Veuillez remplir tous les champs et selctionner un commentaire";
+        }
+    }
+
+}    
+    
 ?>
