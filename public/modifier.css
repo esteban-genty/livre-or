@@ -1,7 +1,4 @@
-body{
-    background-image:url(../R.jpg);
-    background-size: cover;
-}
+
 main{
     display: flex;
     flex-direction: column;
