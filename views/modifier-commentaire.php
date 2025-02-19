@@ -31,19 +31,19 @@
 
     <?php
 
-    $connexion = new Connexion('localhost', 'livre-or', 'root', '');
-    $bddPDO = $connexion->connexionBDD();
+        $connexion = new Connexion('localhost', 'livre-or', 'root', '');
+        $bddPDO = $connexion->connexionBDD(); 
 
-    $commentaire = new Commentaire($bddPDO);
-    echo $commentaire->afficherModifierCommentaire();
+        $commentaire = new Commentaire($bddPDO);
+        echo $commentaire->afficherModifierCommentaire();
 
-    if(isset($_POST['modifier'])){
-    
-    $nv_commentaire = $_POST['nv_commentaire'];
-    $commentaire_id = $_POST['choisir-commentaire'];
+        if(isset($_POST['modifier'])){
+        
+        $nv_commentaire = $_POST['nv_commentaire'];
+        $commentaire_id = $_POST['choisir-commentaire'];
 
-    echo $commentaire->modifierCommentaire($nv_commentaire, $commentaire_id);
-    }
+        echo $commentaire->modifierCommentaire($nv_commentaire, $commentaire_id);
+        }
 
     ?>
     
