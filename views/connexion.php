@@ -7,17 +7,17 @@ require_once __DIR__ . "/../controllers/utilisateur.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($_POST["prenom"]) && !empty($_POST["mail"]) && !empty($_POST["mdp"])) {
-        $nom = trim($_POST["prenom"]);
-        $email = trim($_POST["mail"]);
+        $prenom = trim($_POST["prenom"]);
+        $mail = trim($_POST["mail"]);
         $motdepasse = trim($_POST["mdp"]);
 
         $utilisateur = new Utilisateur('localhost', 'livre-or', 'root', '');
-        $userData = $utilisateur->getUserByMail($email);
+        $userData = $utilisateur->getUserByMail($mail);
         
-        if ($userData && $userData["prenom"] === $nom && password_verify($motdepasse, $userData["mdp"])) {
+        if ($userData && $userData["prenom"] === $prenom && password_verify($motdepasse, $userData["mdp"])) {
             $_SESSION["utilisateur"] = [
                 "id_utilisateur" => $userData["id_utilisateur"],
-                "prenom" => $userData["nom"], 
+                "prenom" => $userData["prenom"], 
                 "mail" => $userData["mail"]
             ];
             
@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = "Veuillez remplir tous les champs.";
     }
 }
+var_dump($_POST)
 ?>
 
 <!DOCTYPE html>

@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="text" name="prenom" value="<?= htmlspecialchars($_SESSION['utilisateur']['prenom'] ?? '') ?>" placeholder="Nouveau prenom">
             <input type="email" name="mail" value="<?= htmlspecialchars($_SESSION['utilisateur']['mail'] ?? '') ?>" placeholder="Nouvel email">
             <input type="password" name="mdp" placeholder="Nouveau mot de passe">
-            <input type="password" name="confirmer_mdp" placeholder="Confirmer mot de passe" required>
+            <input type="password" name="confirmer_mdp" placeholder="Confirmer mot de passe">
             <button type="submit">Mettre à jour</button>
 
             <?php if (!empty($message)) : ?>
