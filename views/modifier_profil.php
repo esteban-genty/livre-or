@@ -3,13 +3,12 @@ session_start();
 require_once __DIR__ . "/../configuration/config.php";
 require_once __DIR__ . "/../controllers/utilisateur.php";
 
-// Vérifie si l'utilisateur est connecté
+
 if (!isset($_SESSION["utilisateur"]["id_utilisateur"])) {
     header("Location: connexion.php");
     exit;
 }
 
-// Instanciation de la classe Utilisateur
 $utilisateur = new Utilisateur();
 $id_utilisateur = $_SESSION["utilisateur"]["id_utilisateur"];
 $message = "";
@@ -24,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($nouveau_mdp && $nouveau_mdp !== $confirmer_mdp) {
             $message = "Les mots de passe ne correspondent pas.";
         } else {
-            // Mise à jour de l'utilisateur
+ 
+
             $updateSuccess = $utilisateur->updateUser($id_utilisateur, $nouveau_nom, $nouvel_email, $nouveau_mdp);
             
             if ($updateSuccess) {
