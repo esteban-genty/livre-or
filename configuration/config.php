@@ -25,7 +25,7 @@ class Connexion {
     }
 }
 
-$connexion = new Connexion('localhost', 'quiznight', 'root', '');
+$connexion = new Connexion('localhost', 'livre-or', 'root', '');
 $connexion->connexionBDD();
 $connexion->sessionStart();
 
