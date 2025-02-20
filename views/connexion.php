@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: modifier_profil.php");
             exit;
         } else {
-            $error = "Prenom, email ou mot de passe incorrect.";
+            $error = "email ou mot de passe incorrect.";
         }
     } else {
         $error = "Veuillez remplir tous les champs.";
