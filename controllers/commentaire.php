@@ -59,7 +59,7 @@ class Commentaire extends RequeteCommentaire {
         if ($results) {
             $html .= '<form action="" method="post">';
             $html .= '<select name="choisir-commentaire">';
-            $html .= '<option value="choisir">Choisir un commentaire</option>'; // Modifié pour laisser vide l'option par défaut
+            $html .= '<option value="choisir">Choisir un commentaire</option>';
             foreach ($results as $result) {
                 $html .= '<option value="' . $result['id_commentaire'] . '">' . $result['commentaire'] . '</option>';
             }
@@ -92,6 +92,43 @@ class Commentaire extends RequeteCommentaire {
         }
     }
 
+    public function afficherSupprimerCommentaire(){
+
+        $results = $this->getCommentaireUtilisateur();
+        $html = '';
+        
+        if ($results) {
+            $html .= '<form action="" method="post">';
+            $html .= '<select name="choisir-commentaire">';
+            $html .= '<option value="choisir">Choisir un commentaire</option>';
+            foreach ($results as $result) {
+                $html .= '<option value="' . $result['id_commentaire'] . '">' . $result['commentaire'] . '</option>';
+            }
+            $html .= '</select>';
+            $html .= '<button type="submit" name="supprimer">Supprimer</button>';
+            $html .= '</form>';
+            
+            return $html;
+        } else {
+            return "Aucun commentaire trouvé.";
+        }
+    }
+
+    public function supprimerCommentaire($commentaire_id){
+
+        if(isset($_POST['supprimer']) && !empty($_POST['choisir-commentaire'])){
+
+            $supprimer = $this->requeteSupprimerCommentaire($commentaire_id);
+
+            if($supprimer){
+                return "Commentaire supprimer avec succès";
+            }else{
+                return "Erreur lors de la suppression du commentaire";
+            }
+        }else{
+                return "Veuillez choisir un commentaire à supprimer";
+        }
+    }
 }    
     
 ?>

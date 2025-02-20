@@ -73,5 +73,16 @@ public function getCommentaireUtilisateur() {
     
         return $requete->execute();
     }
+
+    public function requeteSupprimerCommentaire($commentaire_id){
+
+        $requete = $this->bddPDO->prepare("DELETE FROM commentaire WHERE `commentaire`.`id_commentaire` = :id_commentaire");
+        $requete->bindParam(':id_commentaire', $commentaire_id , PDO::PARAM_INT);
+        $requete->execute();
+
+        return $requete;
+
+    }
+
 }    
 ?>
