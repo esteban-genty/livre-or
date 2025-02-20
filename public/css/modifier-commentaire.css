@@ -55,3 +55,33 @@
 .modifier-commentaire button:hover{
     background-color: var(--cta-hover);
 }
+
+@media only screen and (max-width: 768px) {
+
+    .modifier-commentaire{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modifier-commentaire form{
+        width: 80%;
+    }
+
+    .modifier-commentaire input{
+        width: 90%;
+    }
+
+    .modifier-commentaire button{
+        width: 95%;
+    }
+
+    .modifier-commentaire select{
+        width: 95%;
+    }
+
+    .modifier-commentaire h1{
+        font-size: 1.5rem;
+    }
+    
+}
