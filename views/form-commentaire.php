@@ -49,6 +49,7 @@
 
             if ($result) {
                 echo "<p>$result</p>";
+                header("Location: dashboard.php");
             }
         }
         ?>

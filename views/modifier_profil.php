@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 if (!empty($nouveau_prenom)) $_SESSION["utilisateur"]["prenom"] = $nouveau_prenom;
                 if (!empty($nouvel_email)) $_SESSION["utilisateur"]["mail"] = $nouvel_email;
                 $message = "Mise à jour réussie !";
+                header("Location: dashboard.php");
             } else {
                 $message = "Aucune mise à jour effectuée.";
             }

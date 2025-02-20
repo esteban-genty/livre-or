@@ -44,6 +44,7 @@
                 $commentaire_id = $_POST['choisir-commentaire'];
 
                 echo $commentaire->supprimerCommentaire( $commentaire_id);
+                header("Location: dashboard.php");
                 }
 
             ?>

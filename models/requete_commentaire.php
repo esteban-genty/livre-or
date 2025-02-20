@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/../configuration/config.php";
 require_once __DIR__ . "/../controllers/commentaire.php";
+session_start();
 
 class RequeteCommentaire extends Connexion {
 

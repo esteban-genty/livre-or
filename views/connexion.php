@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 "mail" => $userData["mail"]
             ];
 
-            header("Location: modifier_profil.php");
+            header("Location: dashboard.php");
             exit;
             
         } else {

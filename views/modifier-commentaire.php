@@ -45,6 +45,7 @@
             $commentaire_id = $_POST['choisir-commentaire'];
 
             echo $commentaire->modifierCommentaire($nv_commentaire, $commentaire_id);
+            header("Location: dashboard.php");
             }
 
         ?>

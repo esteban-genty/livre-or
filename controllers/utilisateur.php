@@ -53,7 +53,7 @@ class Utilisateur extends Connexion {
 
         if ($stmt->execute()) {
             $_SESSION['utilisateur'] = ['mail' => $this->mail];
-            header('Location: inscription.php');
+            header('Location: connexion.php');
             exit();
         } else {
             return "Erreur lors de l'inscription";
