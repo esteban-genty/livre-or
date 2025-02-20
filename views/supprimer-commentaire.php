@@ -14,7 +14,7 @@
 
     <!-- Fichier styles -->
     <link rel="stylesheet" href="../public/css/root.css">
-    <link rel="stylesheet" href="../public/css/modifier-commentaire.css">
+    <link rel="stylesheet" href="../public/css/supprimer-commentaire.css">
 
     <!-- Police d'écriture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,11 +36,13 @@
         $commentaire = new Commentaire($bddPDO);
         echo $commentaire->afficherSupprimerCommentaire();
 
-        if(isset($_POST['supprimer'])){
+        if(isset($_POST['supprimer']) && $_POST['choisir-commentaire'] != "choisir"){
 
         $commentaire_id = $_POST['choisir-commentaire'];
 
         echo $commentaire->supprimerCommentaire( $commentaire_id);
+        }else{
+            echo "Veuillez choisir un commentaire";
         }
 
     ?>
