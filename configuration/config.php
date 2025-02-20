@@ -27,7 +27,7 @@
 
 $connexion = new Connexion (host:'localhost', dbname: 'livre-or', username: 'root', password: '');
 $connexion->connexionBDD();
-$connexion->sessionStart();
+
 
 //var_dump($_SESSION);
 
