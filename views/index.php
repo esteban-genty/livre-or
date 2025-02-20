@@ -1,4 +1,4 @@
-<!-- inserer ici le fichier de connexion -->
+<?php require_once(__DIR__ . '/../configuration/config.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
