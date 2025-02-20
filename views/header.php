@@ -6,8 +6,8 @@
             <ul>
             <?php 
                 if (isset($_SESSION['utilisateur']) == 0) {
-                    echo "<li><a href='/livre-or/#'>Connexion</a></li>";
-                    echo "<li><a href='/livre-or/#'>Inscription</a></li>";
+                    echo "<li><a href='connexion.php'>Connexion</a></li>";
+                    echo "<li><a href='inscription.php'>Inscription</a></li>";
                 }
                 else {
                     echo "<li><a href='/livre-or/connexion.php><i class='fa-solid fa-right-from-bracket'></i>Se déconnecter</a></li>";
@@ -32,8 +32,8 @@
                 <li><a href="index.php" id="aTitreM">Accueil</a></li>
                 <?php 
                     if (isset($_SESSION['utilisateur']) == 0) {
-                        echo "<li><a href='/livre-or/connexion.php'>Connexion</a></li>";
-                        echo "<li><a href='/livre-or/#'>Inscription</a></li>";
+                        echo "<li><a href='connexion.php'>Connexion</a></li>";
+                        echo "<li><a href='inscription'>Inscription</a></li>";
                     }
                     else {
                         echo "<li><a href='/livre-or/#Rediger'>Rediger</a></li>";
