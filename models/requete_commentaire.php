@@ -35,8 +35,7 @@ class RequeteCommentaire extends Connexion {
     }
 
 public function getCommentaireUtilisateur() {
-    //$utilisateur_id = $_SESSION['id_utilisateur'];
-    $utilisateur_id = 10;
+    $utilisateur_id = $_SESSION['utilisateur']['id_utilisateur'];
     
     $requete = $this->bddPDO->prepare('SELECT * FROM commentaire WHERE utilisateur_id = :utilisateur_id ORDER BY id_commentaire DESC');
     $requete->bindParam(':utilisateur_id', $utilisateur_id, PDO::PARAM_INT);
@@ -60,16 +59,16 @@ public function getCommentaireUtilisateur() {
 
 
     public function requeteAjouterCommentaire($commentaire) {
-        $date = date('Y-m-d'); // Ajout de la date dans la BDD
-        //$utilisateur_id = $_SESSION['utilisateur_id'];
-        //$auteur = $_SESSION['prenom'];
+        $date = date('Y-m-d');
+        $utilisateur_id = $_SESSION['utilisateur']['id_utilisateur'];
+        $auteur = $_SESSION['utilisateur']['prenom'];
     
         $requete = $this->bddPDO->prepare('INSERT INTO commentaire (commentaire, utilisateur_id, date, auteur) VALUES (:commentaire, :utilisateur_id, :date, :auteur)');
         
         $requete->bindValue(':commentaire', $commentaire);
-        $requete->bindValue(':utilisateur_id', 10);
+        $requete->bindValue(':utilisateur_id', $utilisateur_id);
         $requete->bindValue(':date', $date);
-        $requete->bindValue(':auteur', "Estéban");
+        $requete->bindValue(':auteur', $auteur);
     
         return $requete->execute();
     }

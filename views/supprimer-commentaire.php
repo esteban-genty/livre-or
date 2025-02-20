@@ -44,8 +44,6 @@
                 $commentaire_id = $_POST['choisir-commentaire'];
 
                 echo $commentaire->supprimerCommentaire( $commentaire_id);
-                }else{
-                    echo "Veuillez choisir un commentaire";
                 }
 
             ?>
