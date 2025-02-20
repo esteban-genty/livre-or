@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <title>Modifier Profil</title>
     <link rel="stylesheet" href="../public/css/footer.css?v=<?= time(); ?>">
-    <link rel="stylesheet" href="../public/css/modifier.css?v=<?= time(); ?>">
+    <link rel="stylesheet" href="../public/css/modif.css?v=<?= time(); ?>">
     <link rel="stylesheet" href="../public/css/header.css?v=<?= time(); ?>">
     <link rel="stylesheet" href="../public/css/root.css?v=<?= time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">

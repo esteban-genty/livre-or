@@ -1,6 +1,6 @@
 <footer>
     <div>
-        <img src="/livre-or/assets/logo-echobook.png" alt="">
+        <img src="/livre-or/img/logo-echobook.png" alt="">
         <nav>
             <ul>
             <li><a href="./index.php">Accueil</a></li>

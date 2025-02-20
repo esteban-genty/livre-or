@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = "Veuillez remplir tous les champs.";
     }
 }
-var_dump($_POST)
+
 ?>
 
 <!DOCTYPE html>
