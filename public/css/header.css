@@ -97,8 +97,11 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .aTitre {
+        .divA {
             display: none;
+            .aTitre {
+                display: none;
+            }
         }
         a {
             img {
@@ -117,14 +120,14 @@ header {
             border: none;
             margin-right: 30px;
             hr {
-                color: rgb(255, 255, 255);
+                color: var(--title-color);
                 width: 30px;
             }
         }
         button:hover {
             cursor: pointer;
             hr {
-                color: rgb(155, 155, 155);
+                color: var(--title-color);
             }
         }
         .menuMobile {
