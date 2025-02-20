@@ -37,9 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="../public/header.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../public/root.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../public/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../public/css/footer.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../public/css/header.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../public/css/root.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../public/css/connexion.css?v=<?php echo time(); ?>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
 <?php require_once(__DIR__ . '/header.php'); ?>
@@ -65,5 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </form>
         </section>
     </main>
+    <?php require_once(__DIR__ . '/footer.php'); ?>
 </body>
 </html>

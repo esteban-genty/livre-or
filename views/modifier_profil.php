@@ -46,23 +46,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Modifier Profil</title>
-    <link rel="stylesheet" href="../public/modifier.css?v=<?= time(); ?>">
-    <link rel="stylesheet" href="../public/header.css?v=<?= time(); ?>">
-    <link rel="stylesheet" href="../public/root.css?v=<?= time(); ?>">
+    <link rel="stylesheet" href="../public/css/footer.css?v=<?= time(); ?>">
+    <link rel="stylesheet" href="../public/css/modifier.css?v=<?= time(); ?>">
+    <link rel="stylesheet" href="../public/css/header.css?v=<?= time(); ?>">
+    <link rel="stylesheet" href="../public/css/root.css?v=<?= time(); ?>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <?php require_once(__DIR__ . '/header.php'); ?>
-    <main>
-    <div class="container">
+
+
+    
+<main>
+    <div class="container" >
         <h1>Modifier son profil</h1>
-        <h2>Bienvenue, <?= htmlspecialchars($_SESSION['utilisateur']['prenom'] ?? 'Utilisateur') ?> 👋</h2>
+        <h1>Bienvenue, <?= htmlspecialchars($_SESSION['utilisateur']['prenom'] ?? 'Utilisateur') ?> 👋</h1>
 
         <form method="POST" action="modifier_profil.php">
+
             <input type="text" name="prenom" value="<?= htmlspecialchars($_SESSION['utilisateur']['prenom'] ?? '') ?>" placeholder="Nouveau prenom">
             <input type="email" name="mail" value="<?= htmlspecialchars($_SESSION['utilisateur']['mail'] ?? '') ?>" placeholder="Nouvel email">
             <input type="password" name="mdp" placeholder="Nouveau mot de passe">
-            <input type="password" name="confirmer_mdp" placeholder="Confirmer mot de passe" required>
-            <button type="submit">Mettre à jour</button>
+            <input type="password" name="confirmer_mdp" placeholder="Confirmer mot de passe" >
+            <button type="submit" class="btn-save">Mettre à jour</button>
 
             <?php if (!empty($message)) : ?>
                 <p class="<?= strpos($message, 'réussie') !== false ? 'success' : 'error' ?>">
@@ -72,5 +81,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
     </div>
     </main>
+    <?php require_once(__DIR__ . '/footer.php'); ?>
 </body>
 </html>
