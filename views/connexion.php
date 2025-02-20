@@ -7,7 +7,7 @@ require_once __DIR__ . "/../controllers/utilisateur.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($_POST["mail"]) && !empty($_POST["mdp"])) {
-        $prenom = trim($_POST["prenom"]);
+      
         $mail = trim($_POST["mail"]);
         $motdepasse = trim($_POST["mdp"]);
 
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: modifier_profil.php");
             exit;
         } else {
-            $error = "Prenom, email ou mot de passe incorrect.";
+            $error = "email ou mot de passe incorrect.";
         }
     } else {
         $error = "Veuillez remplir tous les champs.";
