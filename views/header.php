@@ -10,7 +10,7 @@
                     echo "<li><a href='inscription.php'>Inscription</a></li>";
                 }
                 else {
-                    echo "<li><a href='/livre-or/connexion.php><i class='fa-solid fa-right-from-bracket'></i>Se déconnecter</a></li>";
+                    echo "<li><a href='../configuration/deconnexion.php'><i class='fa-solid fa-right-from-bracket'></i>Se déconnecter</a></li>";
                 }
             ?>
         </ul>
