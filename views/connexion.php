@@ -1,37 +1,41 @@
 <?php
-
- 
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 require_once __DIR__ . "/../configuration/config.php";
 require_once __DIR__ . "/../controllers/utilisateur.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($_POST["mail"]) && !empty($_POST["mdp"])) {
-      
         $mail = trim($_POST["mail"]);
         $motdepasse = trim($_POST["mdp"]);
 
         $utilisateur = new Utilisateur('localhost', 'livre-or', 'root', '');
         $userData = $utilisateur->getUserByMail($mail);
-        
-        if ($userData && $userData["mail"] === $mail && password_verify($motdepasse, $userData["mdp"])) {
+
+        if ($userData && password_verify($motdepasse, $userData["mdp"])) {
+            session_regenerate_id(true);
+
             $_SESSION["utilisateur"] = [
                 "id_utilisateur" => $userData["id_utilisateur"],
-                "prenom" => $userData["prenom"], 
+                "prenom" => $userData["prenom"],
                 "mail" => $userData["mail"]
             ];
-            
+
             header("Location: modifier_profil.php");
             exit;
+            
         } else {
-            $error = "email ou mot de passe incorrect.";
+            $error = "Email ou mot de passe incorrect.";
         }
     } else {
         $error = "Veuillez remplir tous les champs.";
     }
 }
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
