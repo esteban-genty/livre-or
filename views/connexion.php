@@ -7,7 +7,7 @@ require_once __DIR__ . "/../controllers/utilisateur.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($_POST["mail"]) && !empty($_POST["mdp"])) {
-        $prenom = trim($_POST["prenom"]);
+      
         $mail = trim($_POST["mail"]);
         $motdepasse = trim($_POST["mdp"]);
 
