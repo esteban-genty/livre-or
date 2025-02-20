@@ -53,7 +53,7 @@
                 </tbody>
             </table>
             <!-- redirection vers la liste des messages -->
-            <a href="#">voir tout</a>
+            <a href="commentaire.php">voir tout</a>
         </section>
 
     </main>

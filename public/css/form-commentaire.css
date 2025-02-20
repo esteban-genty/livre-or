@@ -1,0 +1,76 @@
+.ajout-commentaire{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-body);
+}
+
+.ajout-commentaire h1{
+    font-family: var(--title-font);
+    color: var(--font-color);
+    font-size: 2rem;
+}
+
+.ajout-commentaire textarea{
+    width: 400px;
+    height: 130px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    resize: none;
+}
+
+.ajout-commentaire form{
+    border-radius: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--black-color);
+    height: 300px;
+    width: 500px;
+}
+
+.ajout-commentaire button{
+    width: 420px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--cta);
+    color: white;
+    font-family: var(--main-font);
+    transition: 0.3s ease;
+}
+
+.ajout-commentaire button:hover{
+    background-color: var(--cta-hover);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .ajout-commentaire{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ajout-commentaire form{
+        width: 90%;
+    }
+
+    .ajout-commentaire textarea{
+        width: 85%;
+    }
+
+    .ajout-commentaire button{
+        width: 90%;
+    }
+
+    .ajout-commentaire h1{
+        font-size: 1.6rem;
+    }
+
+}

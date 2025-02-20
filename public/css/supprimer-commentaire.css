@@ -1,0 +1,74 @@
+.supprimer-commentaire{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--bg-body);
+}
+
+.supprimer-commentaire h1{
+    font-family: var(--title-font);
+    color: var(--font-color);
+    font-size: 2rem;
+}
+
+.supprimer-commentaire form{
+    border-radius: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--black-color);
+    height: 200px;
+    width: 500px;
+}
+
+.supprimer-commentaire select{
+    width: 420px;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.supprimer-commentaire button{
+    width: 420px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--cta);
+    color: white;
+    font-family: var(--main-font);
+    transition: 0.3s ease;
+}
+
+.supprimer-commentaire button:hover{
+    background-color: var(--cta-hover);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .supprimer-commentaire{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .supprimer-commentaire form{
+        width: 90%;
+    }
+
+    .supprimer-commentaire select{
+        width: 90%;
+    }
+
+    .supprimer-commentaire button{
+        width: 90%;
+    }
+
+    .supprimer-commentaire h1{
+        font-size: 1.6rem;
+    }
+
+}

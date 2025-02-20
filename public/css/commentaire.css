@@ -1,0 +1,128 @@
+.afficher-commentaire{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: var(--bg-body);
+}
+.recherche form{
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.recherche input{
+    width: 350px;
+    height: 30px;
+    border: 2px solid var(--font-color);
+    border-radius: 15px;
+    padding: 5px;
+    background-color: var(--bg-body);
+    color: var(--font-color);
+}
+
+.recherche button{
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--font-color);
+    color: var(--bg-body);
+}
+
+article{
+    width: auto;
+    height: 90px;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    background-color: var(--main-bg-color);
+    color: var(--bg-body);
+    transition: 0.3s ease;
+    font-family: var(--main-font);
+}
+
+.recherche button:hover{
+    background-color: #134740;
+}
+
+h1{
+    padding-top: 50px;
+    text-align: center;
+    font-family: var(--title-font);
+    color: var(--font-color);
+    font-size: 3rem;
+}
+
+.pagination{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 30px;
+}
+
+.pagination a{
+    text-decoration: none;
+    text-align: center;
+    width: 23px;
+    height: auto;
+    border: 2px solid var(--main-bg-color);
+    color: var(--main-bg-color);
+    font-size: 1.2rem;
+    font-family: var(--main-font);
+}
+
+.commentaire{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.commentaire article{
+    width: auto;
+    height: 90px;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    background-color: var(--main-bg-color);
+    color: var(--bg-body);
+    transition: 0.3s ease;
+    font-family: var(--main-font);
+}
+
+.commentaire article:hover{
+    background-color: #134740;
+}
+
+@media only screen and (max-width: 768px) {
+    .commentaire{
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .commentaire article{
+        width: auto;
+    }
+
+    .recherche input{
+        width: 50%;
+    }
+}
