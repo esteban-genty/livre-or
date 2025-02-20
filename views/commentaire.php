@@ -15,6 +15,8 @@
     <!-- Fichier styles -->
     <link rel="stylesheet" href="../public/css/root.css">
     <link rel="stylesheet" href="../public/css/commentaire.css">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
 
     <!-- Police d'écriture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +25,7 @@
 </head>
 
 <body>
-
+    <?php require_once(__DIR__ . '/header.php'); ?>
     <main>
         <h1>Commentaire :</h1>
         <section class="afficher-commentaire">
@@ -54,9 +56,8 @@
         echo '</section>';
         $commentaire->AfficherPaginationCommentaire();
     ?>
-
-            
     </main>
+    <?php require_once(__DIR__ . '/footer.php'); ?>
 
 </body>
 </html>

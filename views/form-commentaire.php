@@ -24,33 +24,35 @@
 
 <body>
 
-<main>
-    <section class="ajout-commentaire">
-        <h1>Veuillez entrez votre commentaire :</h1>
-        <form action="" method="POST">
+<?php require_once(__DIR__ . '/header.php'); ?>
+    <main>
+        <section class="ajout-commentaire">
+            <h1>Veuillez entrez votre commentaire :</h1>
+            <form action="" method="POST">
 
-            <textarea id="commentaire" name="commentaire" placeholder="Entrez votre commentaire..." maxlength="50"></textarea>
+                <textarea id="commentaire" name="commentaire" placeholder="Entrez votre commentaire..." maxlength="50"></textarea>
 
-            <button type="submit" name="poster">Poster</button>
-        </form>
-    </section>
+                <button type="submit" name="poster">Poster</button>
+            </form>
+        </section>
 
-    <?php
+        <?php
 
-    if (isset($_POST['poster'])) {
-        $connexion = new Connexion('localhost', 'livre-or', 'root', '');
-        $bddPDO = $connexion->connexionBDD();
+        if (isset($_POST['poster'])) {
+            $connexion = new Connexion('localhost', 'livre-or', 'root', '');
+            $bddPDO = $connexion->connexionBDD();
 
-        $commentaire = new Commentaire($bddPDO);
-        $result = $commentaire->ajouterCommentaire();
+            $commentaire = new Commentaire($bddPDO);
+            $result = $commentaire->ajouterCommentaire();
 
-        if ($result) {
-            echo "<p>$result</p>";
+            if ($result) {
+                echo "<p>$result</p>";
+            }
         }
-    }
-    ?>
-    
-</main>
+        ?>
+        
+    </main>
+    <?php require_once(__DIR__ . '/footer.php'); ?>
 
 </body>
 </html>

@@ -24,30 +24,32 @@
 
 <body>
 
-<main>
-    <section class="modifier-commentaire">
-        <h1>Selectionner le commentaire à modifier :</h1>
+    <?php require_once(__DIR__ . '/header.php'); ?>
+    <main>
+        <section class="modifier-commentaire">
+            <h1>Selectionner le commentaire à modifier :</h1>
 
-    <?php
+        <?php
 
-        $connexion = new Connexion('localhost', 'livre-or', 'root', '');
-        $bddPDO = $connexion->connexionBDD(); 
+            $connexion = new Connexion('localhost', 'livre-or', 'root', '');
+            $bddPDO = $connexion->connexionBDD(); 
 
-        $commentaire = new Commentaire($bddPDO);
-        echo $commentaire->afficherModifierCommentaire();
+            $commentaire = new Commentaire($bddPDO);
+            echo $commentaire->afficherModifierCommentaire();
 
-        if(isset($_POST['modifier'])){
+            if(isset($_POST['modifier'])){
+            
+            $nv_commentaire = $_POST['nv_commentaire'];
+            $commentaire_id = $_POST['choisir-commentaire'];
+
+            echo $commentaire->modifierCommentaire($nv_commentaire, $commentaire_id);
+            }
+
+        ?>
+        </section>
         
-        $nv_commentaire = $_POST['nv_commentaire'];
-        $commentaire_id = $_POST['choisir-commentaire'];
-
-        echo $commentaire->modifierCommentaire($nv_commentaire, $commentaire_id);
-        }
-
-    ?>
-    </section>
-    
-</main>
+    </main>
+    <?php require_once(__DIR__ . '/footer.php'); ?>
 
 </body>
 </html>

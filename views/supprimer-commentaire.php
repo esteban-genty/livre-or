@@ -24,31 +24,33 @@
 
 <body>
 
-<main>
-    <section class="supprimer-commentaire">
-        <h1>Selectionner le commentaire à supprimer :</h1>
+    <?php require_once(__DIR__ . '/header.php'); ?>
+    <main>
+        <section class="supprimer-commentaire">
+            <h1>Selectionner le commentaire à supprimer :</h1>
 
-    <?php
+            <?php
 
-        $connexion = new Connexion('localhost', 'livre-or', 'root', '');
-        $bddPDO = $connexion->connexionBDD(); 
+                $connexion = new Connexion('localhost', 'livre-or', 'root', '');
+                $bddPDO = $connexion->connexionBDD(); 
 
-        $commentaire = new Commentaire($bddPDO);
-        echo $commentaire->afficherSupprimerCommentaire();
+                $commentaire = new Commentaire($bddPDO);
+                echo $commentaire->afficherSupprimerCommentaire();
 
-        if(isset($_POST['supprimer']) && $_POST['choisir-commentaire'] != "choisir"){
+                if(isset($_POST['supprimer']) && $_POST['choisir-commentaire'] != "choisir"){
 
-        $commentaire_id = $_POST['choisir-commentaire'];
+                $commentaire_id = $_POST['choisir-commentaire'];
 
-        echo $commentaire->supprimerCommentaire( $commentaire_id);
-        }else{
-            echo "Veuillez choisir un commentaire";
-        }
+                echo $commentaire->supprimerCommentaire( $commentaire_id);
+                }else{
+                    echo "Veuillez choisir un commentaire";
+                }
 
-    ?>
-    </section>
-    
-</main>
+            ?>
+        </section>
+        
+    </main>
+    <?php require_once(__DIR__ . '/footer.php'); ?>
 
 </body>
 </html>
