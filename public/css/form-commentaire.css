@@ -48,3 +48,29 @@
 .ajout-commentaire button:hover{
     background-color: var(--cta-hover);
 }
+
+@media only screen and (max-width: 768px) {
+
+    .ajout-commentaire{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ajout-commentaire form{
+        width: 90%;
+    }
+
+    .ajout-commentaire textarea{
+        width: 85%;
+    }
+
+    .ajout-commentaire button{
+        width: 90%;
+    }
+
+    .ajout-commentaire h1{
+        font-size: 1.6rem;
+    }
+
+}
