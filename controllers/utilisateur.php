@@ -6,7 +6,13 @@
 require_once __DIR__ . '/../configuration/config.php';
 
 class Utilisateur extends Connexion {
-    private $pdo; 
+    private $pdo;
+    private $table_name = "utilisateur"; 
+
+    public $prenom;
+    public $mail;
+    public $mdp;
+    public $mdp_confirmation;
 
     public function __construct($host = 'localhost', $dbname = 'livre-or', $username = 'root', $password = '') {
         parent::__construct($host, $dbname, $username, $password);
@@ -22,12 +28,36 @@ class Utilisateur extends Connexion {
     }
     
 
-    public function insertUser($mail, $mdp) {
-        $hashedPassword = password_hash($mdp, PASSWORD_DEFAULT);
-        $stmt = $this->pdo->prepare("INSERT INTO utilisateur (mail, mdp) VALUES (:mail, :mdp)");
-        $stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
-        $stmt->bindParam(":mdp", $hashedPassword, PDO::PARAM_STR);
-        return $stmt->execute();
+    public function registerUser() {
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM utilisateur WHERE mail = :mail");
+        $stmt->execute(["mail" => $this->mail]);
+        if ($stmt->fetchColumn() > 0) {
+            return "Cette adresse e-mail est déjà utilisée";
+        }
+        if ($this->mdp !== $this->mdp_confirmation) {
+            return "Les mots de passe ne correspondent pas";
+        }
+
+        if (!filter_var($this->mail, FILTER_VALIDATE_EMAIL)) {
+            return "Adresse e-mail invalide";
+        }
+
+        $this->mdp = password_hash($this->mdp, PASSWORD_BCRYPT);
+
+        $query = "INSERT INTO " . $this->table_name . " (prenom, mail, mdp) VALUES (:prenom, :mail, :mdp)";
+        $stmt = $this->pdo->prepare($query);
+
+        $stmt->bindParam(':prenom', $this->prenom);
+        $stmt->bindParam(':mail', $this->mail);
+        $stmt->bindParam(':mdp', $this->mdp);
+
+        if ($stmt->execute()) {
+            $_SESSION['utilisateur'] = ['mail' => $this->mail];
+            header('Location: inscription.php');
+            exit();
+        } else {
+            return "Erreur lors de l'inscription";
+        }
     }
     public function updateUser($id, $nom = null, $email = null, $mdp = null) {
         if ($nom) {
