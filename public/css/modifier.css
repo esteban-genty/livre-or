@@ -4,23 +4,24 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    min-height: 100vh;
+   
     padding: 20px;
 }
+
 .container {
-    width: 380px;
-    background-color: white;
+    width: 90%;
+    background-color: #0E3530;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    height: 80%;
 }
 
 h1 {
-    font-family: 'Lobster', cursive;
+    font-family:  var(--title-font);
     font-size: 28px;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
@@ -31,11 +32,11 @@ form {
 }
 
 input {
-    width: 100%;
+    width: 75%;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 30px;
     outline: none;
     transition: 0.2s;
 }
@@ -44,23 +45,41 @@ input:focus {
     border-color: #833ab4;
 }
 
+
+#buttonbox {
+    text-align: center;
+    margin-top: 10px;
+    width: 90%;
+    align-items: center;
+}
+
 button {
-    background: var( --cta) ;
-    color: white;
-    font-size: 16px;
-    padding: 12px;
+    padding: 10px 12px;
+    font-size: 16px; 
+    width: 80%; 
     border: none;
-    border-radius: 8px;
+    max-width: 250px;
+    background-color:var( --cta); 
+    color: #ffffff;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+input:focus {
+    box-shadow: var(--cta) inset 0 -4px;
 }
 
 button:hover {
+    background-color:var(--cta-hover);
     transform: translateY(-2px);
-    background-color: var(--cta-hover);
+    
 }
 
+button:active {
+    background-color: #505050;
+    transform: translateY(1px);
+}
 p {
     font-size: 14px;
     color: red;
@@ -81,4 +100,9 @@ p {
     .container {
         width: 90%; 
     }
+    form{
+      width: 90%;
+    }
 }
+
+
