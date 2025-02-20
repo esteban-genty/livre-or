@@ -60,7 +60,7 @@ public function getCommentaireUtilisateur() {
 
 
     public function requeteAjouterCommentaire($commentaire) {
-        $date = date('Y-m-d H:i:s'); // Ajout de la date dans la BDD
+        $date = date('Y-m-d'); // Ajout de la date dans la BDD
         //$utilisateur_id = $_SESSION['utilisateur_id'];
         //$auteur = $_SESSION['prenom'];
     
@@ -81,6 +81,16 @@ public function getCommentaireUtilisateur() {
         $requete->execute();
 
         return $requete;
+
+    }
+
+    public function requeteRechercheCommentaire($mots){
+
+        $requete = $this->bddPDO->prepare('SELECT commentaire FROM commentaire WHERE commentaire LIKE :mots');
+        $requete->bindParam(':mots', $mots);
+        $requete->execute();
+
+        return $requete->fetchAll(PDO::FETCH_ASSOC);
 
     }
 

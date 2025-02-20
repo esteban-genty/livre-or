@@ -27,22 +27,34 @@
     <main>
         <h1>Commentaire :</h1>
         <section class="afficher-commentaire">
-            <?php
+    <?php
+        $mots = isset($_GET['mots']) ? htmlspecialchars($_GET['mots']) : '';
 
-                $connexion = new Connexion('localhost', 'livre-or', 'root', '');
-                $bddPDO = $connexion->connexionBDD(); 
-                
-                $commentaire = new Commentaire($bddPDO);
-                $afficher = $commentaire->afficherCommentaire();
-                
+        $connexion = new Connexion('localhost', 'livre-or', 'root', '');
+        $bddPDO = $connexion->connexionBDD(); 
 
-                if ($afficher) {
-                    echo $afficher;
-                }
-        echo "</section>";
+        $commentaire = new Commentaire($bddPDO);
+        
+        echo '<section class="recherche">';
+        echo $commentaire->afficherRecherche();
+        echo'</section>';
 
-                $commentaire->AfficherPaginationCommentaire();
-            ?>  
+        if (isset($_GET['rechercher']) && !empty($mots)) {
+            $resultatsRecherche = $commentaire->rechercheCommentaire($mots);
+            echo $resultatsRecherche;
+        } else {
+            $afficher = $commentaire->afficherCommentaire();
+            if ($afficher) {
+                echo '<section class="commentaire">';
+                echo $afficher;
+                echo '</section>';
+            }
+        }
+
+        echo '</section>';
+        $commentaire->AfficherPaginationCommentaire();
+    ?>
+
             
     </main>
 

@@ -129,6 +129,39 @@ class Commentaire extends RequeteCommentaire {
                 return "Veuillez choisir un commentaire à supprimer";
         }
     }
-}    
+
+    public function afficherRecherche(){
+        $html = '';
+    
+        $html .= '<form name="recherche" action="" method="get">';
+        $html .= '<input type="text" name="mots" placeholder="Bare recherche..."/>';
+        $html .= '<button type="submit" name="rechercher">Rechercher</button>';
+        $html .= '</form>';
+        return $html;
+        }
+    
+
+        public function rechercheCommentaire($mots){
+            $date = date('Y-m-d');
+            $recherche = $this->requeteRechercheCommentaire($mots);
+        
+            if ($recherche) {
+                $html = '';
+        
+                foreach ($recherche as $resultat) {
+                    $html .= '<article>';
+                    $html .= htmlspecialchars($resultat['commentaire']);
+                    $html .= '<span>' . $date . '</span>';
+                    $html .= '</article>';
+                }
+        
+                return $html;
+            } else {
+                return "<p>Aucun commentaire trouvé.</p>";
+            }
+        }
+        
+}
+
     
 ?>
