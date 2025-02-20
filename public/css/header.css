@@ -5,14 +5,22 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: var(--main-bg-color);
-    .aTitre {
+    .navM {
+        display: none;
+    }
+    button {
+        display: none;
+    }
+    .divA {
         height: 100%;
-        width: 20%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        h1 {
+        width: 30%;
+        .aTitre {
+            height: 100%;
+            width: 30%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-decoration: none;
             height: 100%;
             width: fit-content;
             display: flex;
@@ -21,15 +29,14 @@ header {
             font-size: 28px;
             color: var(--title-color);
             padding: 0 10px;
+            margin-left: 30px;
             background: linear-gradient(var(--main-bg-color), var(--main-bg-color) 50%, var(--bg-body) 50%, var(--bg-body));
             background-size: 100% 200%;
             transition: background 0.5 ease;
             transition: 0.5s ease;
         }
-    }
-    .aTitre:hover {
-        cursor: pointer;
-        h1 {
+        .aTitre:hover {
+            cursor: pointer;
             background-position: 100% 100%;
             color: var(--black-color);
         }
@@ -50,12 +57,13 @@ header {
     }
     nav {
         height: 100%;
-        width: 20%;
+        width: 30%;
         ul {
             height: 100%;
             list-style: none;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
+            margin-right: 30px;
             li {
                 height: 100%;
                 a {
@@ -76,6 +84,95 @@ header {
                 a:hover {
                     background-position: 100% 100%;
                     color: var(--black-color);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    header {
+        width: 100vw;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .aTitre {
+            display: none;
+        }
+        a {
+            img {
+                height: 30px;
+            }
+        }  
+        .menuhd {
+            display: none;
+        }
+        button {
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            margin-right: 30px;
+            hr {
+                color: rgb(255, 255, 255);
+                width: 30px;
+            }
+        }
+        button:hover {
+            cursor: pointer;
+            hr {
+                color: rgb(155, 155, 155);
+            }
+        }
+        .menuMobile {
+            bottom: auto;
+            right: auto;
+            z-index: 0;
+            height: fit-content;
+            width: fit-content;
+            border: none;
+            background-color: var(--main-bg-color);
+            border-bottom-right-radius: 15px;
+            translate:-100% 0;
+            transition: translate 0.5s, display 0.5s ease-in-out ;
+            &:popover-open {
+                translate: 0 0;
+                @starting-style {
+                    translate: -100% 0;
+                }
+            }
+            button {
+                display: none;
+            }
+            a {
+                img {
+                    height: 60px;
+                }
+            }
+            ul {
+                display: flex;
+                flex-direction: column;
+                margin-left: 30px;
+                list-style: none;
+                li {
+                    font-family: var(--main-font);
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                    a {
+                        background: none;
+                        padding: 5px 0;
+                        text-decoration: none;
+                    }
+                    a:hover {
+                        color: rgb(189, 189, 189);
+                    }
+                    #aTitreM {
+                        padding-top: 0;
+                        margin-top: 20px;
+                    }
                 }
             }
         }
