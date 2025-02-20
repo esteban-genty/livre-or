@@ -48,27 +48,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 <?php require_once(__DIR__ . '/header.php'); ?>
     <main>
-        <h1>Connexion</h1>
-        <section class="formsection">
-            <form method="POST" action="connexion.php">
-             
+        <section class="Bigsection">
+            <h1>Connexion</h1>
+            <section class="formsection">
+                <form method="POST" action="connexion.php">
+                    <label for="mail">Email</label>
+                    <input type="email" name="mail" required placeholder="echo@book.fr">
 
-                <label for="mail">Email :</label>
-                <input type="email" name="mail" required>
+                    <label for="mdp">Mot de passe :</label>
+                    <input type="password" name="mdp" required>
 
-                <label for="mdp">Mot de passe :</label>
-                <input type="password" name="mdp" required>
+                    <div id="buttonbox">
+                        <button type="submit">Se connecter</button>
+                    </div>
 
-                <div id="buttonbox">
-                    <button type="submit">Se connecter</button>
-                </div>
-
-                <?php if (!empty($error)) : ?>
-                    <p style="color: red; text-align: center;"> <?= htmlspecialchars($error) ?> </p>
-                <?php endif; ?>
-            </form>
+                    <?php if (!empty($error)) : ?>
+                        <p style="color: red; text-align: center;"> <?= htmlspecialchars($error) ?> </p>
+                    <?php endif; ?>
+                </form>
+            </section>
         </section>
     </main>
+    <?php require_once(__DIR__ . '/footer.php'); ?>
     <?php require_once(__DIR__ . '/footer.php'); ?>
 </body>
 </html>
