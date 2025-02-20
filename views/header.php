@@ -1,5 +1,5 @@
 <header>
-    <div class="divA"><a class="aTitre" href="../img/logo-echobook.png">Accueil</a></div>
+    <div class="divA"><a class="aTitre" href="../livre-or/img/logo-echobook.png">Accueil</a></div>
     <a class="aImg" href="/livre-or/index.php"><img src="/livre-or\public\img\logo-echobook.png" alt="logo echobook"></a>
         <nav class="menuhd">
             <ul>
