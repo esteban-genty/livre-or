@@ -15,6 +15,8 @@
     <!-- Fichier styles -->
     <link rel="stylesheet" href="../public/css/root.css">
     <link rel="stylesheet" href="../public/css/modifier-commentaire.css">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
 
     <!-- Police d'écriture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
