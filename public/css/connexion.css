@@ -1,4 +1,12 @@
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 main {
     flex: 1;
     display: flex;
@@ -9,13 +17,7 @@ main {
     padding: 20px;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
+
 
 
 #buttonbox {
@@ -54,6 +56,7 @@ label {
     margin: 10px 0 5px;
     font-size: 20px;
     color: white;
+    width: 80%;
 }
 
 
@@ -132,4 +135,3 @@ button:active {
         width: 90%; 
     }
 }
-
