@@ -1,6 +1,6 @@
 <header>
-    <div class="divA"><a class="aTitre" href="../livre-or/img/logo-echobook.png">Accueil</a></div>
-    <a class="aImg" href="/livre-or/index.php"><img src="/livre-or\public\img\logo-echobook.png" alt="logo echobook"></a>
+    <div class="divA"><a class="aTitre" href="index.php">Accueil</a></div>
+    <a class="aImg" href="/livre-or/views/index.php"><img src="/livre-or\public\img\logo-echobook.png" alt="logo echobook"></a>
         <nav class="menuhd">
             <ul>
             <ul>
@@ -32,7 +32,7 @@
                 <li><a href="index.php" id="aTitreM">Accueil</a></li>
                 <?php 
                     if (isset($_SESSION['utilisateur']) == 0) {
-                        echo "<li><a href='/livre-or/#'>Connexion</a></li>";
+                        echo "<li><a href='/livre-or/connexion.php'>Connexion</a></li>";
                         echo "<li><a href='/livre-or/#'>Inscription</a></li>";
                     }
                     else {
