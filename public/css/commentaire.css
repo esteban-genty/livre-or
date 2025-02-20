@@ -111,3 +111,18 @@ h1{
 .commentaire article:hover{
     background-color: #134740;
 }
+
+@media only screen and (max-width: 768px) {
+    .commentaire{
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .commentaire article{
+        width: auto;
+    }
+
+    .recherche input{
+        width: 50%;
+    }
+}
