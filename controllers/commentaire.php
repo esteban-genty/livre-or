@@ -64,7 +64,7 @@ class Commentaire extends RequeteCommentaire {
                 $html .= '<option value="' . $result['id_commentaire'] . '">' . $result['commentaire'] . '</option>';
             }
             $html .= '</select>';
-            $html .= '<input type="text" name="nv_commentaire" placeholder="Nouveau Commentaire" required />';
+            $html .= '<input type="text" name="nv_commentaire" placeholder="Nouveau Commentaire" required maxlength="50" />';
             $html .= '<button type="submit" name="modifier">Modifier</button>';
             $html .= '</form>';
             

@@ -29,7 +29,7 @@
         <h1>Veuillez entrez votre commentaire :</h1>
         <form action="" method="POST">
 
-            <textarea id="commentaire" name="commentaire" placeholder="Entrez votre commentaire..."></textarea>
+            <textarea id="commentaire" name="commentaire" placeholder="Entrez votre commentaire..." maxlength="50"></textarea>
 
             <button type="submit" name="poster">Poster</button>
         </form>
