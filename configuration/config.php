@@ -25,7 +25,7 @@
     }
 }
 
-$connexion = new Connexion (host:'localhost', dbname: 'livre-or', username: 'root', password: '');
+$connexion = new Connexion (host:'localhost:3306', dbname: 'antoine-leca_livre-or', username: 'livre-or', password: 'Gig193s*8');
 $connexion->connexionBDD();
 
 

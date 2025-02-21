@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail = trim($_POST["mail"]);
         $motdepasse = trim($_POST["mdp"]);
 
-        $utilisateur = new Utilisateur('localhost', 'livre-or', 'root', '');
+        $utilisateur = new Utilisateur(host:'localhost:3306', dbname: 'antoine-leca_livre-or', username: 'livre-or', password: 'Gig193s*8');
         $userData = $utilisateur->getUserByMail($mail);
 
         if ($userData && password_verify($motdepasse, $userData["mdp"])) {

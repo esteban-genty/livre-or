@@ -28,7 +28,7 @@ if (!isset($_SESSION["utilisateur"]["id_utilisateur"])) {
 
 
 
-$utilisateur = new Utilisateur('localhost', 'livre-or', 'root', '');
+$utilisateur = new Utilisateur(host:'localhost:3306', dbname: 'antoine-leca_livre-or', username: 'livre-or', password: 'Gig193s*8');
 $id_utilisateur = $_SESSION["utilisateur"]["id_utilisateur"];
 $message = "";
 
