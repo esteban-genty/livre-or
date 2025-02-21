@@ -37,10 +37,10 @@
                     }
                     else {
                         echo "<li><a href='/livre-or/views/dashboard.php'>Profil</a></li>";
-                        echo "<li><a href='/livre-or/#Rediger'>Rediger</a></li>";
-                        echo "<li><a href='/livre-or/#Liste'>Liste</a></li>";
-                        echo "<li><a href='/livre-or/#Modifier'>Modifier</a></li>";
-                        echo "<li><a href='/livre-or/#Supprimer'>Supprimer</a></li>";
+                        echo "<li><a href='/livre-or/views/form-commentaire.php'>Rediger</a></li>";
+                        echo "<li><a href='/livre-or/views/commentaire.php'>Liste</a></li>";
+                        echo "<li><a href='/livre-or/views/modifier-commentaire.php'>Modifier</a></li>";
+                        echo "<li><a href='/livre-or/views/supprimer-commentaire.php'>Supprimer</a></li>";
                     }
                 ?>
             </ul>
