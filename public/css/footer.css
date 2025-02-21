@@ -10,12 +10,13 @@ footer {
     font-weight: bold;
     letter-spacing: 0.5px;
     color: white;
-    div {
+    .bigDiv {
         height: 80%;
         width: 80%;
         display: flex;
         justify-content: space-between;
         img {
+            margin-top: 20px;
             height: 150px;
             width: auto;
         }
@@ -23,6 +24,9 @@ footer {
             margin-top: 28px;
             ul {
                 list-style: none;
+                li {
+                    margin-bottom: 5px;
+                }
                 a {
                     color: white;
                     text-decoration: none;
@@ -47,4 +51,16 @@ footer {
             color: white;
         }
     }
+}
+
+@media only screen and (max-width: 720px) {
+    footer {
+        
+        .bigDiv {
+            img {
+                height: 80px;
+                width: auto;
+            }
+        }
+    }   
 }

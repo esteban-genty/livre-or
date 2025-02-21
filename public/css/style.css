@@ -128,3 +128,16 @@ body {
         }
     }
 }
+
+@media only screen and (max-width: 720px) {
+    main {
+        width: 100%;
+        .sectionCTA {
+            width: 100% !important;
+            padding: 0 !important;
+            #aIns {
+                width: 50% !important;
+            }
+        }
+    }
+}

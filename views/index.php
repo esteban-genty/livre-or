@@ -1,13 +1,12 @@
-<?php require_once(__DIR__ . '/../configuration/config.php');
+<?php 
+    require_once(__DIR__ . '/../configuration/config.php');
 
-if(!empty($_SESSION)){
     session_start();
-}
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,9 +23,15 @@ if(!empty($_SESSION)){
     <?php require_once(__DIR__ . '/header.php'); ?>
     <main>
         <section class="sectionCTA">
-            <label for="">Rédigez, publiez, lisez</label>
-            <a id="aIns" href="inscription.php">Inscrivez-vous</a>
-            <p>ou <a id="aCo" href="connexion.php">connectez-vous</a></p>
+           <?php if (isset($_SESSION['utilisateur']) == 0) {
+                echo "<label for=''>Rédigez, publiez, lisez</label>";
+                echo "<a id='aIns' href='inscription.php'>Inscrivez-vous</a>";
+                echo "<p>ou <a id='aCo' href='connexion.php'>connectez-vous</a></p>";
+            }
+            else {
+                echo "<a id='aIns' href='dashboard.php'>Tableau de bord</a>";
+            }
+            ?>
         </section>
         <section class="sectionMsg">
             <div>
@@ -43,7 +48,7 @@ if(!empty($_SESSION)){
                 <tbody>
                     <tr>
                         <td>18/02/2025</td>
-                        <td>Antoine</td>
+                        <td>Estéban</td>
                         <td>Meilleur livre d'or en ligne</td>
                     </tr>
                     <tr>
@@ -53,7 +58,7 @@ if(!empty($_SESSION)){
                     </tr>
                     <tr id="derniereLigne">
                         <td>18/02/2025</td>
-                        <td>Antoine</td>
+                        <td>Sébastien</td>
                         <td>Meilleur livre d'or en ligne</td>
                     </tr>
                 </tbody>
