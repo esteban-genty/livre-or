@@ -36,6 +36,7 @@
                         echo "<li><a href='inscription'>Inscription</a></li>";
                     }
                     else {
+                        echo "<li><a href='/livre-or/views/dashboard.php'>Profil</a></li>";
                         echo "<li><a href='/livre-or/#Rediger'>Rediger</a></li>";
                         echo "<li><a href='/livre-or/#Liste'>Liste</a></li>";
                         echo "<li><a href='/livre-or/#Modifier'>Modifier</a></li>";

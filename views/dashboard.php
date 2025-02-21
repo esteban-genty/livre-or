@@ -33,7 +33,7 @@
     <?php require_once(__DIR__ . '/header.php'); ?> 
     <main>
         <section class="Bigsection">
-            <h1>Dashboard</h1>
+            <h1>Tableau de bord</h1>
             <article action="">
                 <h2><?= htmlspecialchars($_SESSION['utilisateur']['prenom'] ?? 'Utilisateur') ?></h2>
                 <a href="/livre-or/views/modifier_profil.php">Modifier</a>
