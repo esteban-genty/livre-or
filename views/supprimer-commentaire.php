@@ -33,7 +33,7 @@
 
             <?php
 
-                $connexion = new Connexion('localhost', 'livre-or', 'root', '');
+                $connexion = new Connexion(host:'localhost:3306', dbname: 'antoine-leca_livre-or', username: 'livre-or', password: 'Gig193s*8');
                 $bddPDO = $connexion->connexionBDD(); 
 
                 $commentaire = new Commentaire($bddPDO);

@@ -2,10 +2,10 @@
     require_once(__DIR__ . '/../configuration/config.php');
     require_once(__DIR__ . '/../controllers/utilisateur.php');
 
-    $connexion = new Connexion('localhost', 'quiznight', 'root', '');
+    $connexion = new Connexion(host:'localhost:3306', dbname: 'antoine-leca_livre-or', username: 'livre-or', password: 'Gig193s*8');
     $bddPDO = $connexion->connexionBDD();
 
-    $user = new Utilisateur('localhost', 'livre-or', 'root', '');
+    $user = new Utilisateur(host:'localhost:3306', dbname: 'antoine-leca_livre-or', username: 'livre-or', password: 'Gig193s*8');
 
     if (isset($_POST['submitbutton'])) {
         $user->prenom = $_POST['prenom'];
