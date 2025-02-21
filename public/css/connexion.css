@@ -37,11 +37,13 @@ main {
 
     display: flex;
     justify-content: center;
+
+    font-family: var(--main-font);
 }
 
 
 h1 {
-    font-size: 22px;
+    font-size: 40px;
     margin-bottom: 15px;
     color: #333;
     font-family:  var(--title-font);
@@ -90,7 +92,7 @@ input[type="password"]:focus {
 #buttonbox {
     text-align: center;
     margin-top: 10px;
-    width: 90%;
+    width: 100%;
     align-items: center;
 }
 
@@ -99,7 +101,8 @@ button {
     color: rgb(255, 254, 254);
     border: none;
     padding: 12px 15px;
-    font-size:20px;
+    font-size:16px;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
     width: 100%;
