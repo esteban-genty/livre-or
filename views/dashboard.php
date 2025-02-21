@@ -39,7 +39,7 @@
                 <a href="/livre-or/views/modifier_profil.php">Modifier</a>
                 <div class="divComs">
                     <div>
-                        <a href="/livre-or/views/commentaire.php">Liste de vos commentaires</a>
+                        <a href="/livre-or/views/commentaire.php">Liste des commentaires</a>
                     </div>
                     <label for="">Gérez vos commentaires</label>
                     <ul>
